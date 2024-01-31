@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Payment Page Encryption</title>
+</head>
+<!-- <body onload="document.frm1.submit()">  -->
+<body>
+	<!-- <form action="https://test.payu.in/_payment" name="frm1" method="post" id="redirectForm" >-->
+	<form action="https://secure.payu.in/_payment" name="frm1" method="post" id="redirectForm" >
+		<p>Please wait.......</p>
+		<input type="hidden" name="key" th:value="${key}" /> 
+		<input type="hidden" name="txnid" th:value="${txnid}" />
+		<input type="hidden" name="productinfo" th:value="${productinfo}" /> 
+		<input type="hidden" name="amount" th:value="${amount}" /> 
+		<input type="hidden" name="email" th:value="${email}" /> 
+		<input type="hidden" name="firstname" th:value="${firstname}" /> 
+		<input type="hidden" name="pg" th:value="${pg}" />
+		<input type="hidden" name="bankcode" th:value="${bankcode}" /> 
+		<input type="hidden" name="vpa" th:value="${vpa}" /> 
+		<input type="hidden" name="surl" th:value="${surl}" /> 
+		<input type="hidden" name="furl" th:value="${furl}" /> 
+		<input type="hidden" name="phone" th:value="${phone}" /> 
+		<input type="hidden" name="hash" th:value="${hash}" />
+		
+	</form>
+	<script type="text/javascript"> document.getElementById("redirectForm").submit(); </script>
+</body>
+</html>

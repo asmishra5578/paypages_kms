@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Payment Page Encryption</title>
+</head>
+<!-- <body onload="document.frm1.submit()">  -->
+<body>
+	<form action="https://api.payaidpayments.com/v2/paymentseamlessrequest" method="post" id="redirectForm" >
+		<p>Please wait.......</p>
+		<input type="hidden" name="hash" th:value="${hash}">
+        <input type="hidden" name="api_key" th:value="${api_key}">
+        <input type="hidden" name="return_url" th:value="${return_url}">
+        <input type="hidden" name="mode" th:value="${mode}">
+        <input type="hidden" name="order_id" th:value="${order_id}">
+        <input type="hidden" name="amount" th:value="${amount}">
+        <input type="hidden" name="currency" th:value="${currency}">
+        <input type="hidden" name="description" th:value="${description}">
+        <input type="hidden" name="name" th:value="${name}">
+        <input type="hidden" name="email" th:value="${email}">
+        <input type="hidden" name="phone" th:value="${phone}">
+        <input type="hidden" name="address_line_1" th:value="${address_line_1}">
+        <input type="hidden" name="address_line_2" th:value="${address_line_2}">
+        <input type="hidden" name="city" th:value="${city}">
+        <input type="hidden" name="state" th:value="${state}">
+        <input type="hidden" name="zip_code" th:value="${zip_code}">
+        <input type="hidden" name="country" th:value="${country}">
+        <input type="hidden" name="udf1" th:value="${udf1}">
+        <input type="hidden" name="udf2" th:value="${udf2}">
+        <input type="hidden" name="udf3" th:value="${udf3}">
+        <input type="hidden" name="udf4" th:value="${udf4}">
+        <input type="hidden" name="udf5" th:value="${udf5}">      
+        <input type="hidden" name="bank_code" th:value="${bank_code}">                                                                                        
+</form>
+		
+	</form>
+	<script type="text/javascript"> document.getElementById("redirectForm").submit(); </script>
+</body>
+</html>

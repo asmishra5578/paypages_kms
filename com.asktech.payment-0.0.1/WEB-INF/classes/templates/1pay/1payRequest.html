@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Payment Page Encryption</title>
+</head>
+<!-- <body onload="document.frm1.submit()">  -->
+<body>
+<form id="paymentpage" action="https://pay.1pay.in/payment/payprocessorV2" name="frm1"  method="post">
+<p>Please wait.......</p>
+		<input type="hidden" name="merchantId" th:value="${merchantId}" /> 
+		<input type="hidden" name="reqData" th:value="${reqData}" />
+		<input value="Pay Now" type="submit"	onclick="" > 
+</form>
+<script type="text/javascript"> document.getElementById("paymentpage").submit(); </script>
+</body>
+</html>

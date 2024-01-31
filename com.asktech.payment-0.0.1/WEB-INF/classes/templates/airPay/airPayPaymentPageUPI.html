@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Payment Page Encryption</title>
+</head>
+<!-- <body onload="document.frm1.submit()">  -->
+<body>
+	<form th:action="${paymentUrl}" name="frm1" method="post" id="redirectForm" >
+		<p>Please wait.......</p>
+		<input type="hidden" name="buyerEmail" th:value="${buyerEmail}" /> 
+		<input type="hidden" name="buyerPhone" th:value="${buyerPhone}" />
+		<input type="hidden" name="buyerFirstName" th:value="${buyerFirstName}" /> 
+		<input type="hidden" name="buyerLastName" th:value="${buyerLastName}" /> 
+		<input type="hidden" name="orderid" th:value="${orderid}" /> 
+		<input type="hidden" name="amount" th:value="${amount}" /> 
+		<input type="hidden" name="UID" th:value="${UID}" />
+		<input type="hidden" name="payerVPA" th:value="${vpa}" /> 
+		<input type="hidden" name="privatekey" th:value="${privatekey}" /> 
+		<input type="hidden" name="mercid" th:value="${mercid}" /> 
+		<input type="hidden" name="chmod" th:value="${chmod}" /> 
+		<input type="hidden" name="checksum" th:value="${checksum}" /> 
+		<input type="hidden" name="currency" th:value="${currency}" />
+		<input type="hidden" name="isocurrency" th:value="${isocurrency}" />
+		<input type="hidden" name="mode" th:value="${mode}" />
+		<input type="hidden" name="channel" th:value="${channel}" />
+		<input type="hidden" name="mer_dom" th:value="${mer_dom}" />
+		<input type="hidden" name="apiName" th:value="collectVPA" />
+		<input type="submit" />
+	</form>
+	<script type="text/javascript"> //document.getElementById("redirectForm").submit(); </script>
+</body>
+</html>

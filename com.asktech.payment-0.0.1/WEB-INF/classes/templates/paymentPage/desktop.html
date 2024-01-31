@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<html class="loading" lang="en" data-textdirection="ltr">
+
+<head>
+<meta name="robots" content="noindex">
+	<!-- Required meta tags -->
+		<script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-WL2BMRN');</script>
+		
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+		integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="icon" type="image/x-icon" href="images/tab.png">
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+	<title>Eazypaymentz Payment Page</title>
+</head>
+
+<body>
+	<noscript>
+	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WL2BMRN" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe>
+			</noscript>
+	<div style="background-image: url('./images/background.jpg');">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<div class="absolute center">
+						<div>
+							<div class="row around-xs" style="padding-left: 1rem;">
+								<div class="col-xs-12 relative avatar large svelte-p3dboo" style="display: flex;">
+									<div class="right absolute merchant-logo top spinner-bg css-1wa435s svelte-p3dboo"
+										style="background-image: url('./images/tab.png');">
+									</div>
+									<div style="margin-left: 20px;">
+										<p class="h1 merhant-name-long one-line bold  svelte-p3dboo"><span
+												style="font-size: 15px;">MOBILE STREET</span> <br>
+											<span class="cancel-txn svelte-p3dboo">
+												<form method="post"
+													action="#">
+													<input type="hidden" value="4u1o203i4xkwksshl2q5" name="orderHash">
+													<input type="hidden" value="cancel" name="action"></form> <button
+													class="text-danger link">Cancel</button>
+											</span>
+										</p>
+									</div>
+									<div class="paisadivmainhadding"><span style="font-size: 20px;">₹</span> <span
+											style="font-size: 20px;">1.</span><span>00</span>
+									</div>
+								</div>
+								<div class="gap"></div>
+							</div>
+						</div>
+						<div>
+							<div class="mobile_tab_payment align-items-start">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
+											aria-orientation="vertical">
+											<button th:if=${upiactive} class="nav-link active" id="v-pills-upi-tab" data-bs-toggle="pill"
+												data-bs-target="#v-pills-upi" type="button" role="tab"
+												aria-controls="v-pills-upi" aria-selected="true"><span>
+													<i class="fas fa-angle-double-right"></i>
+												</span>UPI</button>
+											<button th:if=${cardactive} class="nav-link" id="v-pills-card-tab" data-bs-toggle="pill"
+												data-bs-target="#v-pills-card" type="button" role="tab"
+												aria-controls="v-pills-card" aria-selected="false"><span>
+													
+													<i class="far fa-credit-card"></i>
+												</span>Card</button>
+											<button th:if=${walletactive} class="nav-link" id="v-pills-wallet-tab" data-bs-toggle="pill"
+												data-bs-target="#v-pills-wallet" type="button" role="tab"
+												aria-controls="v-pills-wallet" aria-selected="false"><span>
+													
+													<i class="fas fa-wallet"></i>
+												</span>Wallet</button>
+											<button th:if=${nbactive} class="nav-link" id="v-pills-nb-tab" data-bs-toggle="pill"
+												data-bs-target="#v-pills-nb" type="button" role="tab"
+												aria-controls="v-pills-nb" aria-selected="false"><span>
+													
+													<i class="fas fa-desktop"></i>
+												</span>Net Banking</button>
+										</div>
+									</div>
+
+									<div class="col-md-7">
+										<div class="tab-content" id="v-pills-tabContent">
+											<div th:if=${upiactive}  class="tab-pane fade show active" id="v-pills-upi" role="tabpanel"
+												aria-labelledby="v-pills-upi-tab">
+												<div>
+
+													<div class="card upicard" th:if=${upiactiveinput}>
+														<div class="card-body">
+															<div >
+																<input type="text" class="form-control enterupi"
+																	id="enterupiorphone"
+																	placeholder="Enter UPI ID" >
+																<button disabled type="button"
+																	class="btn btn-primary verifyupiorphonesumbmit">Verify & Pay</button>
+															</div>
+															<ul class="upiul">
+																<li class="upilist"><img class="gpayicon"
+																		src='./images/gpay.png'></img>
+																	</li>
+																<li><img class="paytmicon" src='./images/paytm.png'/>
+															
+																	</li>
+																<li><img class="phonepeicon" src='./images/phonepe.png'/>
+																	
+																	</li>
+																<li><img class="bhimlogoicon"
+																		src='./images/bhim_logo.png'></img>
+																	</li>
+																<li><img class='amazonpayicon'
+																		src='./images/amazonpay.png'></img>
+																	</li>
+															</ul>
+
+														</div>
+													</div>
+													<div class="payupihadding" th:if=${upiqractive}>
+														<span> <span><img src="./images/qr.svg"></img></span> <span
+																style="font-size: 15px;font-weight: 400;margin-left: 10px;">Pay
+																Using QR Code</span></span>
+													</div>
+												</div>
+											</div>
+											<div th:if=${cardactive} class="tab-pane fade" id="v-pills-card" role="tabpanel"
+												aria-labelledby="v-pills-card-tab">
+												<div class="card upicard">
+													<div class="card-body">
+														<h5 style="font-size: 12px;color: #999;">Credit card is
+															supported</h5>
+														<div>
+															<input type="text" class="form-control enterupi"
+																id="cardnumbercard" placeholder="Card Number">
+														</div>
+														<div style="margin-top: 20px;">
+															<input type="text" class="form-control enterupi"
+																id="holdernamecard" placeholder="Card Holder Name">
+														</div>
+														<div style="margin-top: 20px;display: flex;">
+															<div>
+																<input type="text" class="form-control enterupi"
+																	id="mmyycard" placeholder="MM/YY">
+															</div>
+															<div style="margin-left: 10px;">
+																<input type="text" class="form-control enterupi"
+																	id="cvvcard" placeholder="CVV">
+															</div>
+														</div>
+														<div class="form-check" style="margin-top: 10px;">
+															<input class="form-check-input" type="checkbox" value=""
+																id="flexCheckChecked" checked>
+															<label class="form-check-label" for="flexCheckChecked">
+																Save this Card
+															</label>
+														</div>
+
+														<button disabled type="button"
+															class="btn btn-primary verifyupiorphonesumbmit">Pay
+															Now</button>
+														<div style="margin-top: 10px;text-align: center;">
+															<img class="cardstrip" src="./images/cards-strip.png"></img>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div th:if=${walletactive} class="tab-pane fade" id="v-pills-wallet" role="tabpanel"
+												aria-labelledby="v-pills-wallet-tab">
+												<div style="display: flex;">
+													<div class="walletdiv">
+														<span><img src='./images/airtelmoney.png'
+																width="15%"></img></span><span class='walletname'>Airtel
+															money</span>
+													</div>
+													<div class="walletdiv" style="margin-left: 10px;">
+														<span><img src='./images/phonepe.png'
+																width="17%"></img></span><span
+															class='walletname'>PhonePe</span>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane fade" id="v-pills-nb" role="tabpanel"
+												aria-labelledby="v-pills-nb-tab">
+										
+												<div class="netbankingdiv" style="margin-top: 10px;" th:each="bank : ${banklist}" th:if="${bank.entity_banner_enable == 'TRUE'}">
+													<a href="#"><span><img width="12%"  th:src='${bank.entity_banner}' ></img></span><span
+														class='walletname'>Kotak</span></a>
+														
+												</div>
+									
+												<div style="margin-top: 20px;color: #999;">
+													<h4 style="font-size: 14px;">Show All Banking Options</h4>
+													<select class="form-select" aria-label="Default select example">
+														<option selected>Select other Bank</option>
+														<option th:each="bank : ${banklist}" th:value="${bank.bankCode}"
+															th:text="${bank.bankName}"></option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="footerdiv">
+								<div style="text-align: center;">
+									<div class="xs mb-8 bold-headline">Payments Secured by</div>
+									<img class="footereazypaymentlogo" src='./images/tab.png'></img>
+								</div>
+								<div style="text-align: center;">
+									<img class="regtenglepng" src='./images/rectangle.png'></img>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

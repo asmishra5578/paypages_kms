@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>PG Payment Process</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet" />
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+
+		#border-btm {
+			padding-bottom: 20px;
+			margin-bottom: 0px;
+			box-shadow: 0px 35px 2px -35px lightgray;
+		}
+
+		.buttoncolor {
+			margin-top: 50%;
+			margin-bottom: 30%;
+			background-color: #eb530d !important;
+			border-color: #eb530d !important;
+		}
+	</style>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+
+<!-- <body onload="document.frm1.submit()">  -->
+<style>
+	.container {
+		width: 100%;
+		height: 100%;
+	}
+
+	/* This is whats needed */
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+
+	iframe {
+		border: none;
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+
+	h3 {
+		text-align: center;
+	}
+
+	iframe::-webkit-scrollbar {
+		display: none;
+	}
+</style>
+
+<body>
+	<div class="container px-0">
+
+		<iframe th:src="${returnUrl}" width=100% height="600" frameBorder="0" th:if="${device == 'desktop'}"></iframe>
+
+		<div class="row justify-content-center" th:unless="${device == 'desktop'}">
+			<div class="col-md-12">
+				<a th:href="${returnUrl}" id="upibutton"><button class="btn btn-success placeicon buttoncolor"> Open UPI
+						app</button></a>
+			</div>
+		</div>
+		<br>
+
+	</div>
+	<h3>Waiting for payment</h3>
+
+
+	<form id="hiddenform" th:action="${apiurl}+'/notifyurlSetu'" method="POST">
+		<input type="hidden" th:value="${orderId}" name="orderId" id="formdt" />
+		<input type="hidden" th:value="${merchantId}" name="merchantId" id="merchantId" />
+
+	</form>
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	var count = 0;
+	var tid;
+	setTimeout(function () {
+		startPolling();
+		console.log("start polling");
+	}, 30000);
+	function startPolling() {
+		tid = setInterval(request, 5000);
+	}
+
+	function request() {
+		$.get("[[${apiurl}]]/getSetuTransactionDetails/[[${orderId}]]",
+
+			function (data) {
+				if (data.status !== 'PENDING') {
+					abortFunction();
+				}
+			});
+		console.log("count::" + count);
+		if (count > 54) {
+			abortFunction();
+		}
+		count++;
+	}
+	function abortFunction() {
+		clearInterval(tid);
+		$('#hiddenform').submit();
+	}
+	function clickButton() {
+		if ($('#upibutton').length) {
+			$('#upibutton').trigger("click");
+		}
+	}
+	$(document).ready(function () {
+		clickButton();
+	});
+</script>
+
+</html>

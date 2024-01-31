@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Payment Page Encryption</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var st = "[[${redirect_url}]]";
+      console.log(st.replace(/amp;/g, ""));
+      window.location.replace(st.replace(/amp;/g, ""));
+    </script>
+  </body>
+</html>

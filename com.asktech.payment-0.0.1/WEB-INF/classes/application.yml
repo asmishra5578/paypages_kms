@@ -1,0 +1,203 @@
+smsSenderId: ANLYTQ
+mailSenderId: no-reply@eazypaymentz.com
+smsTextFormat:
+  merchantTRSMS: Hi {MERCHANTNAME} Your Account ending with  XXXX<<LAST4DIGIT>> has been settled with Rs. <<AMT>> on <<DATEANDTIME>>.Your merchant account has been settled up to <<DATEANDTIME>>. For queries, kindly contact support@eazypaymentz.com
+  customerTRSMS: Hi {CUSTOMERNAME} Your Transaction with Rs.{AMT} on {DATEANDTIME} on Analytiq EazyPaymentz Payment Gateway has been {TXNSTATUS}.For queries, kindly contact support@eazypaymentz.com.
+
+originUrl: https://payment.paytoday.in/pg
+merApiEndPoint: https://payment.paytoday.in/adm
+# originUrl: http://localhost:8090
+# originUrl: https://pay.vpayapp.com/pg
+# merApiEndPoint: https://pay.vpayapp.com/adm # Merchant server base url
+# originUrl: https://development.vpayapp.com/pg
+# merApiEndPoint: https://development.vpayapp.com/adm
+
+
+pgEndPoints:
+
+  Pinwallet: https://app.pinwallet.in/api/Dyupi/GenerateUPI
+  Pinwalletauth: https://app.pinwallet.in/api/token/create
+  PinwalletVersion: v1
+  PinwalletV1: https://app.pinwallet.in/api/Dyupi/V1/GenerateUPI
+  PinwalletVersionv2: https://app.pinwallet.in/api/DyupiV2/V2/GenerateUPI
+  PinwalletV3: https://app.pinwallet.in/api/DyupiV2/V3/GenerateUPI
+  PinwalletV4: https://app.pinwallet.in/api/DyupiV2/V4/GenerateUPI
+
+  # PinwalletV3: https://ezulix.in/api/dyupi/Generatedyupid.aspx
+
+
+  KitzoneEncryption: https://services.kitzone.in/api/UserServices/eEncryptRequest
+  KitzonePayment: https://services.kitzone.in/api/UserServices/eKitzoneQRService
+  KitzoneTransactionstatusbyexttrnxid: https://services.kitzone.in/api/UserServices/eKitzoneQRTransactionStatusByIDervice
+  KitzoneTransactionstatusbyRRN: https://services.kitzone.in/api/UserServices/eEncryptRequest
+  KitzoneINTENTPayment: https://services.kitzone.in/api/UserServices/eKZISUIntentRequestService
+  KitzoneVPAPayment: https://services.kitzone.in/api/UserServices/eKZISUVPARequestService
+
+  cashfree: https://www.cashfree.com/checkout/post/submit
+  cashfreeReturnURL: ${originUrl}/returnurl
+  cashfreeNotifyURL: ${originUrl}/notifyurl
+  letzpay: https://www.letzPay.com/pgui/jsp/hostedpaymentrequest
+  letzpayReturnURL: ${originUrl}/notifyurlLetsPay
+  setuPaymentLinkCreate: https://prod.setu.co/api/payment-links
+  setuTriggerPayment: https://prod.setu.co/api/triggers/funds/addCredit
+  setuPaymentStatus: https://prod.setu.co/api/payment-links/
+  freeChargePaymentLink: https://checkout.freecharge.in
+  freeChargefurlLink: ${originUrl}/notifyurlFreeCharge
+  freeChargesurlLink: ${originUrl}/notifyurlFreeCharge
+  paytmCreateLink: https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=[merchantMID]&orderId=
+  paytmCallBackAPI: ${originUrl}/paytmNotify
+  paytmSubmitJs: https://securegw.paytm.in/merchantpgpui/checkoutjs/merchants/
+
+  # nonSeamSubmitUrl:  ${originUrl}/paymentPageSubmit
+  nonSeamSubmitUrl:  ${originUrl}/paymentPageSubmit
+  zavionURL: https://portal.zavion.in/pgui/jsp/paymentrequest
+
+  zavionReturnURL: ${originUrl}/notifyurlZavion
+  easebuzzCreateLink: https://pay.easebuzz.in/
+  easebuzzSeamLess: https://pay.easebuzz.in/
+
+  easebuzzReturnURL: ${originUrl}/returnurlEasebuzz
+  
+  payuSeamLess: https://secure.payu.in/_payment
+  payuReturnURL: ${originUrl}/returnurlPayU
+  
+  onepaySeamLess: https://pay.1pay.in/payment/payprocessorV2
+ # onepayReturnURL: https://bmgarments.in/onepayVAS/merchantResponse.jsp
+  onePayPaymentStatus: https://pay.1pay.in/payment/getTxnDetails
+
+  iciciBankGetToken: https://test.fdconnect.com/FirstPayL2Services/getToken
+  iciciBankPaymentEndPoint: https://test.fdconnect.com/Pay/
+  iciciBankDecryption: https://test.fdconnect.com/FirstPayL2Services/decryptMerchantResponse
+  iciciBankReturnURL: ${originUrl}/returnURLIcici/
+  
+  getePayPaymentURL: https://pay.getepay.in/getepayComponent/paynow
+  getePayReturnURL: ${originUrl}/returnURLGetePay/  
+  
+  nsdlAuthenticationEndPoint: https://nsdlpb.insolutionsglobal.com/ISGPayNG/v2/transactionAuthenticate
+  nsdlAuthorizationEndPoint: https://nsdlpb.insolutionsglobal.com/ISGPayNG/v2/transactionAuthorize
+  nsdlUPIEndPoint: https://nsdlpb.insolutionsglobal.com/ISGPayNG/v2/upiRequest
+  nsdlStatusEndPoint: https://nsdlpb.insolutionsglobal.com/ISGPayNG/v2/saleStatus
+  
+  isgAuthenticationEndPoint: https://nsdlpb.insolutionsglobal.com/ISGPayNG/v2/transactionAuthenticate
+  isgAuthorizationEndPoint: https://nsdlpb.insolutionsglobal.com/ISGPayNG/v2/transactionAuthorize
+  isgUPIEndPoint: https://isgpay.com/ISGPayNG/v2/upiRequest
+  isgStatusEndPoint: https://isgpay.com/ISGPayNG/v2/saleStatus
+  
+  grezpaySeamLess: https://secure.grezpay.com/pgui/jsp/merchantpay
+  grezpayReturnURL: ${originUrl}/returngrezpay
+
+
+  grezpaypayment: https://securev2.grezpay.com/api/payment/intents
+  grezpaytransactionstatus: https://securev2.grezpay.com/api/intent/check/status
+  grezpayreturn: https://pay.vpayapp.cpm/pg/callbackProcess116
+  
+  
+  asanpaySeamLess: https://pg.asanpay.co.in/v1/jsp/merchantpay
+  asanpayReturnURL: ${originUrl}/returnasanpay
+  asanpayStatusAPI: https://pg.asanpay.co.in/v1/services/paymentServices/StatusApi
+  
+  razorPayOrderCreate: https://api.razorpay.com/v1/orders
+  razorPayPaymentPage: https://api.razorpay.com/v1/payments/create
+  razorPayReturnURL: ${originUrl}/returnRazorPay
+  
+  paygPayOrderCreate: https://paygapi.payg.in/payment/api/order/create
+  paygPayOrderStatus: https://paygapi.payg.in/payment/api/order/Detail
+  paygReturnURL: ${originUrl}/returnURLPayG
+  
+  sabPaisaReturnUrl: ${originUrl}/returnsb
+  sabPaisaEndPoint: https://securepay.sabpaisa.in/SabPaisa/sabPaisaInit
+  sabPaisaUpiLimit: 5
+
+  atomReturnURL: ${originUrl}/returnProcess100
+  atomSubmitURL: https://payment.atomtech.in/paynetz/epi/fts
+  atomStatusAPiEndPoint: https://payment.atomtech.in/paynetz/vftsv2
+  
+  airPayReturnURL: ${originUrl}/returnProcess101/
+  airPayPaymentURL: https://payments.airpay.co.in/pay/payindexapi.php
+  airOrdercheckURL: https://payments.airpay.co.in/order/verify.php
+  airBaseURL: ${originUrl}
+
+  ippopayReturnURL: ${originUrl}/returnProcess102
+  ippopayPaymentURL: https://api.ippopay.com/v1/order/create
+  
+  easypayRequestUrl: https://epmoney.easypay.co.in/epyesbc/easypaygateway/v1
+  easypayReturnUrl: ${originUrl}/returnProcess103
+
+  neocredAuthRequest: https://va.neokred.tech:8088/va/v1/authenticate
+  neocredPayRequest: https://va.neokred.tech:8088/va/v1/client/customer
+  neocredVertualAccRequest: https://va.neokred.tech:8088/api/v1/upi/create/vaaccount
+  neoCredReturnUrl: ${originUrl}/returnProcess107/
+
+  nimbblGenerateToken: https://api.nimbbl.tech/api/v2/generate-token
+  nimbblCreateOrder: https://api.nimbbl.tech/api/v2/create-order
+  nimbblInitPayment: https://api.nimbbl.tech/api/v2/initiate-payment
+  nimbblMakePayment: https://api.nimbbl.tech/api/v2/payment
+  nimbblCheckStatus: https://api.nimbbl.tech/api/v2/transaction-enquiry
+  nimbblReturnUpiUrl: ${originUrl}/returnProcess108
+  
+  pineperkReturn: ${originUrl}/returnProcess109
+
+  payaidReturnUpiUrl: ${originUrl}/returnProcess109
+
+  paystarReturnUrl: ${originUrl}/returnProcess111
+
+  NeocredverifyVPA: https://collectbot.neokred.tech/payin/kpy/api/v1/external/upi/verify-vpa
+  NeocredUPItransfer: https://collectbot.neokred.tech/kopay-svc/api/v1/external/upi/transfer
+  Neocredtransactionstatus: https://collectbot.neokred.tech/kopay-svc/api/v1/external/upi/status
+
+   
+  Kopayintent: https://uat.upi.kopay.kopayments.com/api/v1/upi/qr/generate
+  Kopaycollect: https://uat.upi.kopay.kopayments.com/api/v1/upi/transfer
+  Kopaytransactionstatus: https://uat.upi.kopay.kopayments.com/api/v1/upi/status
+
+
+ 
+allowedURL:
+  urls: ${originUrl}, ${originUrl}/pg, https://secure.sark.co.in, https://paid.sark.co.in, https://secure.eazypaymentz.com, https://www.cashfree.com/, https://zovian.com , https://paynew.aspirecrockery.in, https://www.cashfree.com/gateway/thankyou ,  https://payments.cashfree.com/ , https://pay.easebuzz.in, https://onepaypgtest.in, https://pay.1paypg.in, https://secure.eazypaymentz.com/, https://secure.vpayapp.com/, https://secure.eazypaymentz.com, https://payment.atomtech.in, https://pay.rkchairs.in,  https://paynew.realimpactmediaservices.in, https://paynew.sarweshwarexim.in, https://paynew.jordanmultitrade.in, https://pay.jordanmultitrade.in, https://paynew.woodcart.co.in, payu, https://pay.rummygamezy.com, https://paynew.rummygamezy.com, https://secure.vpayapp.com, https://development.eazypaymentz.com
+
+folderconfiguration:
+  setuWebHook: /home/setu/Webhook/
+  atomCallBack: /home/atom/callback/
+
+idealSessionTimeOut: 10
+
+#apiEndPoint: ${originUrl}
+apiEndPoint: ${originUrl}
+apiCustomerNotifyUrl: ${originUrl}/paymentNotify
+
+
+
+apiPayoutEndPoint:
+   payoutUrl: http://payout.eazypaymentz.com/payout/merchant/
+   payoutBaseUrl: http://payout.eazypaymentz.com/payout/
+
+payTmCredentials:
+  nodel:
+    secretId: tRZxpNG_Pq24rVfDgeFndSADQxXP96mvQD2ti6k7CGY=
+    partnerId: NODAL_API_SUITE_ANA_000264
+  van:
+    secretId: GIj7GvEySFRhSfWkNvwY6abWkqRXz5GICBHkJenVSGI=
+    partnerId: VAN_ANA_000268
+    
+easebuzz:
+  productInfo: Analytics
+payu:
+  productInfo: iPhone
+  commandCardValidate: check_isDomestic
+
+utilityService:
+  cardDeterminator: https://development.eazypaymentz.com/adm/utility/getCardBinCheck?cardBin=  
+  neutrinoapiUserId: analytiq
+  neutrinoapiKey: lda8d9SyzS45Lh0xhHsHqsRMtd5IDletpw0e2lRnRVppth7o
+  neutrinoEndPoint: https://neutrinoapi.net/bin-lookup
+paygetService:
+  apikey: 64b3v85t4bbgtrue
+  enckey: djg$%&21
+
+returnPage: returnPage
+upiLimit: 200000
+ips:
+#  address1: 13.233.225.138
+#  address1: 3.7.240.14
+#  address1: 13.235.246.145
+  address1: 13.127.251.213 

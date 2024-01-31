@@ -1,0 +1,267 @@
+.absolute.center {
+    padding: 1rem;
+    background: #fafafa;
+    box-shadow: 0 2px 8px 0 rgb(152 154 156 / 25%);
+    border-radius: 4px;
+    border-top: 5px solid #fafafa;
+    overflow-x: hidden;
+    /* position: absolute; */
+    margin-top: 10px;
+    border-top-color: #e94d28;
+    overflow-y: scroll;
+    height: 100vh;
+}
+.merchant-logo.svelte-p3dboo {
+    background-color: #fff;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 0.37rem;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 0;
+    overflow: hidden;
+}
+
+button.link {
+    border: none;
+    background: transparent;
+}
+
+.text-danger {
+    color: #e7474a!important;
+}
+
+.gap {
+    height: 1.40997983729rem;
+    width: 100%;
+}
+.nav-pills .nav-link{
+    margin: 5px;
+    width: 280px;  
+    text-align: left;
+    outline: none;
+    border: none;
+    color: #e94d28;
+    background: #fff;
+    border-radius: 10px;
+}
+div#v-pills-tabContent {
+    margin-left: 10%;
+}
+.iconimage{
+    width: 25px;
+    margin-right: 10px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #e94d28;
+    border: none;
+}
+button:focus{
+    outline: none;
+}
+.card.upicard{
+    border-radius: 8px!important;
+    border: 2px solid #fff;
+    background: #fff;
+    transition: width .3s ease-in;
+    box-shadow: 0px 2px 8px 0px rgb(59 136 148 / 10%);
+}
+button.btn.btn-primary.verifyupiorphonesumbmit{
+    margin-top: 10px;
+        width: 100%;
+        border-radius: 8px;
+        outline: none;
+        border: none;
+}
+ul.upiul {
+    list-style: none;
+    display: inline-flex;
+    margin-top: 20px;
+}
+img.gpayicon {
+    height: 20px;
+}
+img.paytmicon {
+    height: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+img.phonepeicon {
+    height: 20px;
+    margin-right: 5px;
+}
+img.bhimlogoicon {
+    height: 20px;
+    margin-right: 5px;
+}
+img.amazonpayicon{
+    width: 25px;
+}
+.tabupicss{
+    width: 24px;
+}
+.payupihadding{
+    background: #fff;
+    border-radius: 8px;
+    margin-top: 1.12798386983rem;
+    border: 2px solid #fff;
+    box-shadow: 0px 2px 8px 0px rgb(59 136 148 / 10%);
+    padding: 10px;
+}
+.cardstrip{
+    height: 20px;
+}
+.walletdiv {
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 1.12798386983 rem;
+    border: 2px solid #fff;
+}
+.netbankingdiv{
+    padding: 0px;
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 1.12798386983 rem;
+    border: 2px solid #fff;
+    width: 300px;
+}
+.walletname{
+    margin-left: 10px;
+}
+.mb-8 {
+    margin-bottom: 0.5rem !important;
+}
+.xs {
+    font-size: 0.70498991864rem;
+}
+.bold-headline {
+    font-weight: 600!important;
+}
+img.footereazypaymentlogo {
+    margin-top: -20px;
+}
+img.regtenglepng{
+width: 50%;
+}
+.footerdiv{
+    margin-top: 150px;
+}
+.row {
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-flex: 0;
+    flex: 0 1 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: -0.5rem;
+    margin-left: -0.5rem;
+}
+/* .around-xs {
+    justify-content: space-around;
+} */
+.relative {
+    position: relative;
+}
+.merhant-name-long.svelte-p3dboo {
+    padding-right: 120px;
+}
+.one-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+.bold {
+    font-weight: 400!important;
+}
+.paisadivmainhadding{
+    margin-left: 200px;
+    margin-top: 25px;
+}
+.form-control{
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #999;
+}
+.form-select{
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 400;
+    width: 90%;
+    height: 40px;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    color: #999;
+}
+.form-select:focus{
+    color: #999;
+    background-color: #fff;
+    border-color:none;
+    border: 2px solid red;
+    outline: 0;
+    box-shadow: none;
+    border-radius: 8px; 
+}
+.form-control:focus{
+    color: #999;
+    background-color: #fff;
+    border-color:none;
+    border: 2px solid red;
+    outline: 0;
+    box-shadow: none;
+    border-radius: 8px;
+}
+.btn-primary.disabled, .btn-primary:disabled{
+    background-color: #e94d28;
+}
+.btn-primary{
+    background-color: #e94d28;
+}
+.btn-primary:focus{
+    background-color: #e94d28 !important;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+    color: #fff;
+    background-color: #e94d28 !important;
+    border-color: #e94d28 !important;
+}
+.btn-primary.focus, .btn-primary:focus{
+    box-shadow: none;
+}
+.btn-primary:hover{
+    background-color: #e94d28 !important;
+}
+.form-check-label {
+    margin-bottom: 0;
+    color: #999;
+    font-size: 13px;
+}
+  @media only screen and (min-device-width: 360px) and (max-device-width: 720px) {
+    .amount.svelte-p3dboo {
+        margin-left: 0%;
+      } 
+      .merchant-logo.svelte-p3dboo{
+        width: 2rem;
+        height: 2rem;
+      }
+      .merhant-name-long.svelte-p3dboo{
+          font-size: 15px;
+      }
+      .paisadivmainhadding {
+        margin-left: 2px;
+        margin-top: 0px;
+    }
+
+      div#v-pills-tabContent
+      {
+          margin-left:0%;
+      }
+     }

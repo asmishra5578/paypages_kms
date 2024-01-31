@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Payment Encryption</title>
+</head>
+<!-- <body onload="document.frm1.submit()">  -->
+<body>
+	<form id='seamless_auto_submit_form' method='POST' action='https://pay.easebuzz.in/initiate_seamless_payment/'>
+		<input type='hidden' name='access_key' th:value='${data}' /> 
+		<input type='hidden' name='payment_mode' th:value='${payment_mode}' /> 
+		<input type='hidden' name='bank_code' th:value='${bank_code}' />
+	</form>
+	<script type='text/javascript'>
+		document.getElementById('seamless_auto_submit_form').submit();
+	</script>
+</body>
+</html>

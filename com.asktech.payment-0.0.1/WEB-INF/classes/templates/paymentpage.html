@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+
+	<!-- Google Tag Manager -->
+	<script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-WL2BMRN');</script>
+	<!-- End Google Tag Manager -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+	<meta name="robots" content="noindex">
+	<title>Payment Page</title>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
+		rel="stylesheet">
+	<!-- BEGIN: Theme CSS-->
+	<link rel="stylesheet" type="text/css" href="https://d2c6lu0sl4v1t2.cloudfront.net/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="https://d2c6lu0sl4v1t2.cloudfront.net/css/page-auth.css">
+	<!-- END: Page CSS-->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/3.2.0/jsencrypt.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-CDJ2CSGE95"></script>
+	<style>
+		nav>.nav.nav-tabs {
+
+			border: none;
+			color: #fff;
+			background: #272e38;
+			border-radius: 0;
+
+		}
+
+		nav>div a.nav-item.nav-link,
+		nav>div a.nav-item.nav-link.active {
+			border: none;
+			padding: 8px 10px;
+			color: #fff;
+			background: #272e38;
+			border-radius: 0;
+		}
+
+		nav>div a.nav-item.nav-link.active:after {
+			content: "";
+			position: relative;
+			inset-block-end: -60px;
+			inset-inline-start: -10%;
+			border: 15px solid transparent;
+			border-block-start-color: #e74c3c;
+		}
+
+		.tab-content {
+			background: #fdfdfd;
+			line-height: 25px;
+			/* border: 1px solid #ddd; */
+			border-block-start: 5px solid #e74c3c;
+			/* border-block-end:5px solid #e74c3c; */
+			padding: 30px 25px;
+		}
+
+		nav>div a.nav-item.nav-link:hover,
+		nav>div a.nav-item.nav-link:focus {
+			border: none;
+			background: #e74c3c;
+			color: #fff;
+			border-radius: 0;
+			transition: background 0.20s linear;
+		}
+	</style>
+</head>
+
+<body data-new-gr-c-s-check-loaded="8.885.0" data-gr-ext-installed="">
+	<!-- Google Tag Manager (noscript) -->
+	<noscript>
+	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WL2BMRN" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe>
+			</noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<div class="card mb-0">
+		<div class="card-body">
+
+			<div>
+				<div style="display:flex ;">
+
+					<div>
+						<p class="paymentto">Payment To</p>
+						<h1 class="cashfree">Merchant</h1>
+					</div>
+
+
+				</div>
+				<div class="col-xl-12">
+					<div class="input-group input-group-merge mb-2">
+						<span class="input-group-text"><img class="rupessicon"
+								src='https://d2c6lu0sl4v1t2.cloudfront.net/images/rupay.png' /></span>
+						<input type="text" class="form-control" id="basicInput" placeholder="0" th:value="${amount}"
+							readonly />
+					</div>
+				</div>
+			</div>
+			<div style="text-align: center;">
+				<h4 class="card-title mb-1">Select Payment Method
+				</h4>
+			</div>
+
+			<div>
+				<div class="row">
+					<div class="col-xs-12 ">
+						<nav>
+							<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+								<a class='nav-item nav-link'  id="nav-wallet-tab" data-toggle="tab"
+									href="#nav-wallet" role="tab" aria-controls="nav-wallet" th:if=${walletactive}>WALLET</a>								
+								<a class='nav-item nav-link'  id="nav-upi-tab" data-toggle="tab" href="#nav-upi"
+									role="tab" aria-controls="nav-upi" th:if=${upiactive}>UPI</a>
+								<a class='nav-item nav-link' id="nav-bank-tab" data-toggle="tab" href="#nav-bank"
+									role="tab" aria-controls="nav-bank" th:if=${nbactive}>BANK</a>
+								<a class='nav-item nav-link' id="nav-card-tab" data-toggle="tab" href="#nav-card"
+									role="tab" aria-controls="nav-card" th:if=${cardactive}>CARD</a>
+								<a class='nav-item nav-link' id="nav-others-tab" data-toggle="tab" href="#nav-others"
+									role="tab" aria-controls="nav-others" th:if=${othersactive}>OTH</a>
+							
+							</div>
+						</nav>
+						<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+							<div class="tab-pane fade" id="nav-wallet" role="tabpanel"
+								aria-labelledby="nav-wallet-tab" th:if=${walletactive}>
+								<div>
+									<div class="mb-1" style="margin-block-start: 20px;">
+										<label class="form-label" for="walletname"> Select Wallet</label>
+										<select class="form-select" id="walletname">
+											<option value="0" selected>Select Wallet</option>
+											<option th:each="wallet : ${walletlist}" th:value="${wallet.PaymentCode}"
+												th:text="${wallet.WalletName}"></option>
+										</select>
+									</div>
+									<div style="text-align: center;">
+										<button class="btn btn-primary" type="submit" id="walletsubmit">Pay</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="tab-pane fade" id="nav-upi" role="tabpanel" aria-labelledby="nav-upi-tab" th:if=${upiactive}>
+								<div style="margin-block-start: 20px;">
+									<div class="col-xl-12 col-md-12 col-12" th:if=${upiactiveinput}>
+										<div class="mb-1">
+											<label class="form-label" for="ben_upi">Enter UPI</label>
+											<input type="text" class="form-control" name="ben_upi" id="ben_upi"
+												placeholder="UPI" />
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xl-6 col-md-6 col-12" th:if=${upiactiveinput}>
+											<button class="btn btn-primary btn-block" type="submit" id="upisubmit">Pay
+											</button>
+										</div>
+
+							
+										<div class="col-xl-6 col-md-6 col-12" th:if=${upiqractive}>
+
+											<button class="paywith btn btn-primary" type="submit" id="upiqr">Click Here to Pay with
+												UPI APP
+                                            </button>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+                            <div class="tab-pane fade" id="nav-bank" role="tabpanel" aria-labelledby="nav-bank-tab" th:if=${nbactive}>
+								<div>
+									<div class="col-xl-12 col-md-12 col-12">
+										<div class="mb-1">
+											<label class="form-label" for="ben_nm">Beneficiary Name</label>
+											<input type="text" class="form-control" id="ben_nm" placeholder="Name">
+
+										</div>
+									</div>
+									<div class="mb-1" style="margin-block-start: 20px;">
+										<label class="form-label" for="banknames"> Select Bank</label>
+										<select class="form-select" id="banknames">
+											<option value="0" selected="">Select Bank</option>
+											<option th:each="bank : ${banklist}"
+															th:value="${bank.bankCode}" th:text="${bank.bankName}"></option>
+										</select>
+									</div>
+									<div style="text-align: center;">
+										<button class="btn btn-primary" type="submit" id="banksubmit">Pay</button>
+
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="nav-card" role="tabpanel" aria-labelledby="nav-card-tab" th:if=${cardactive}>
+
+								<div style="margin-block-start: 20px;">
+								</div>
+								<div>
+									<h4 class="haddingpage">Card Info</h4>
+									<div class="col-xl-12 col-md-12 col-12">
+										<label class="form-label" for="cr_name">Card Holder Name</label>
+										<input class="form-control" id="cr_name" type="text"
+											placeholder="Card Holder Name" autofocus="" tabindex="1" />
+									</div>
+									<div class="col-xl-12 col-md-12 col-12">
+										<label class="form-label" for="cr_no">Card Number</label>
+										<input class="form-control" id="cr_no" type="text" placeholder="Card Number"
+											maxlength="16" autofocus="" tabindex="1" />
+									</div>
+									<div class="row">
+										<div class="col-xl-4 col-md-6 col-12">
+											<label class="form-label" for="year">Year</label>
+											<select id="year" class="form-control">
+												<option value="0" selected>Select Year</option>
+												<option th:each="year : ${yearlist}" th:value="${year}"
+													th:text="${year}"></option>
+											</select>
+										</div>
+
+										<div class="col-xl-4 col-md-6 col-12">
+											<label class="form-label" for="month">Month</label>
+											<select id="month" class="form-control">
+												<option value="0" selected>Select Month</option>
+												<option th:each="i : ${#numbers.sequence(1, 12)}" th:value="${i}"
+													th:text="${i}"></option>
+											</select>
+										</div>
+										<div class="col-xl-4 col-md-6 col-12">
+											<div class="mb-1">
+												<label class="form-label" for="cvv">CVV</label>
+												<input type="password" name="cvcpwd" class="form-control" id="cvv"
+													placeholder="CVV" maxlength="3" size="3" />
+
+											</div>
+										</div>
+									</div>
+									<div style="text-align: center;">
+										<button class="btn btn-primary" type="submit" id="cardsubmit">Pay</button>
+
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="nav-others" role="tabpanel" aria-labelledby="nav-others-tab" th:if=${othersactive}>
+								<div style="margin-block-start: 20px;">
+									<div class="col-xl-6 col-md-6 col-12" th:if=${othersactive}>
+									<button class="btn btn-primary btn-block" type="submit" id="otherssubmit">Pay
+							        </button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<hr />
+		</div>
+	</div>
+	
+	<form id="hiddenform" th:action="${submitUrl}" method="POST">
+
+		<input type="hidden" value="" name="data" id="formdt" /> <input
+			type="hidden" th:value="${tk}" name="tk" id="tk" />
+	</form>
+
+</body>
+<!-- END: Body-->
+<script type="text/javascript"
+		src="https://d2c6lu0sl4v1t2.cloudfront.net/validation.js"></script>
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		$(document).ready(function () {
+			$("#banksubmit").click(function () {
+				var publicKey = [[${pubkey}]];
+				var bankcode = $('#banknames').val();
+				var bankname = $('#ben_nm').val();
+				checkWalletBank(bankcode, 'banknames');
+				var dt = "nb|" + bankname + "|" + bankcode;
+				let RSAEncrypt = new JSEncrypt();
+				RSAEncrypt.setPublicKey(publicKey);
+				let encryptedData = RSAEncrypt.encrypt(dt);
+				console.log(encryptedData);
+				$('#formdt').val(encryptedData);
+				$('#hiddenform').submit();
+			});
+			$("#cardsubmit").click(function () {
+				var publicKey = [[${pubkey}]];
+				var name = $('#cr_name').val();
+				var cardno = $('#cr_no').val();
+				if (isCardValid(cardno)) {
+					var year = $('#year').val();
+					var month = $('#month').val();
+					var cvv = $('#cvv').val();
+					var dt = "card|" + name + "|" + cardno + "|" + year + "|" + month + "|" + cvv;
+					let RSAEncrypt = new JSEncrypt();
+					RSAEncrypt.setPublicKey(publicKey);
+					let encryptedData = RSAEncrypt.encrypt(dt);
+					console.log(encryptedData);
+					$('#formdt').val(encryptedData);
+					$('#hiddenform').submit();
+				} else {
+					highlight("cr_no", "Invalid card details");
+				}
+
+			});
+			$("#upisubmit").click(function () {
+				var publicKey = [[${pubkey}]];
+				var upicode = $('#ben_upi').val();
+				var setu = [[${setu}]];
+				var setu = 'sdgjh';
+				if (setu == true) {
+					upicode = "setu@analytique";
+				}
+				var dt = "upi|" + upicode;
+				console.log(dt);
+				let RSAEncrypt = new JSEncrypt();
+				RSAEncrypt.setPublicKey(publicKey);
+				let encryptedData = RSAEncrypt.encrypt(dt);
+				console.log(encryptedData);
+				$('#formdt').val(encryptedData);
+				$('#hiddenform').submit();
+
+			});
+			$("#walletsubmit").click(function () {
+				var publicKey = [[${pubkey}]];
+				var walletcode = $('#walletname').val();
+				if (!checkWalletBank($('#walletname').val(), 'walletname')) {
+					return false;
+				}
+				var dt = "wallet|" + walletcode;
+				let RSAEncrypt = new JSEncrypt();
+				RSAEncrypt.setPublicKey(publicKey);
+				let encryptedData = RSAEncrypt.encrypt(dt);
+				console.log(encryptedData);
+				$('#formdt').val(encryptedData);
+				$('#hiddenform').submit();
+
+			});
+			$("#upiqr").click(function () {
+				var publicKey = [[${pubkey}]];
+				var dt = "upi_qr";
+				let RSAEncrypt = new JSEncrypt();
+				RSAEncrypt.setPublicKey(publicKey);
+				let encryptedData = RSAEncrypt.encrypt(dt);
+				console.log(encryptedData);
+				$('#formdt').val(encryptedData);
+				$('#hiddenform').submit();
+
+			});
+			$("#otherssubmit").click(function () {
+				var publicKey = [[${pubkey}]];
+				var dt = "others";
+				let RSAEncrypt = new JSEncrypt();
+				RSAEncrypt.setPublicKey(publicKey);
+				let encryptedData = RSAEncrypt.encrypt(dt);
+				console.log(encryptedData);
+				$('#formdt').val(encryptedData);
+				$('#hiddenform').submit();
+
+			});
+			
+	var nv = $('#nav-tab a:first-child').attr('href');
+	$(nv).addClass('show');
+	$(nv).addClass('active');
+	$('#nav-tab a:first-child').addClass('active');
+		});
+        /*]]>*/
+	</script>
+</html>
